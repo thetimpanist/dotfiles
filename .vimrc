@@ -1,10 +1,20 @@
 echo "(>^.^<)"
 
 " set numbering
-set rnu
+set nu
 set numberwidth=4
 
 " lower right hand cursor position
+set ruler
+
+" ignore case on search
+set ic
+
+" search highlighting
+set hlsearch
+set incsearch
+
+
 
 " tabs and indenting
 set expandtab
@@ -41,11 +51,21 @@ nnoremap <leader><S-tab> 4i<backspace><esc>l
 nnoremap <space> i<space><esc>l
 
 " uppercase previous word
-inoremap <c-u> <esc>v`[U1wi
+inoremap <c-u> <esc>vbUea<space>
 
 " auto curly brace
-inoremap { {<enter>}<esc><s-o>
+inoremap {{ {<enter>}<esc><s-o>
 
 " assoc array brackets
 inoremap [[ ['
 inoremap ]] ']
+
+" edit vimrc in buffer
+:nnoremap <leader>erc :split $MYVIMRC<cr>
+
+" source vimrc
+:nnoremap <leader>src :so $MYVIMRC<cr>
+
+" check php syntax
+:nnoremap <leader>cs :! php -l %<enter>
+
