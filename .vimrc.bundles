@@ -20,5 +20,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
+Plug 'fatih/molokai'
 
 call plug#end()

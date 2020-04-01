@@ -50,6 +50,8 @@ set showmatch
 highlight ColorColumn ctermbg=233
 set colorcolumn=81
 
+colorscheme molokai
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
@@ -111,10 +113,10 @@ augroup ale
   if g:has_async
     set updatetime=1000
     let g:ale_lint_on_text_changed = 0
-    autocmd CursorHold * call ale#Lint()
-    autocmd CursorHoldI * call ale#Lint()
-    autocmd InsertEnter * call ale#Lint()
-    autocmd InsertLeave * call ale#Lint()
+    autocmd CursorHold * call ale#Queue(0)
+    autocmd CursorHoldI * call ale#Queue(0)
+    autocmd InsertEnter * call ale#Queue(0)
+    autocmd InsertLeave * call ale#Queue(0)
   endif
 augroup END
 
@@ -135,3 +137,5 @@ if executable('ag')
   endif
 endif
 
+" escape exits terminal mode
+:tnoremap <Esc> <C-\><C-n>
